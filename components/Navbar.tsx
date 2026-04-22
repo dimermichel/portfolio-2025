@@ -30,11 +30,19 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
           <div className="flex justify-between items-center">
             <a href="#home" className="flex items-center gap-3 group relative">
               <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary-500 shadow-lg shadow-primary-500/20 transform group-hover:rotate-12 transition-transform">
-                <img
-                  src="https://avatars.githubusercontent.com/u/32581187?v=4"
-                  alt="Michel Maia"
-                  className="w-full h-full object-cover"
-                />
+                {theme === "dark" ? (
+                  <img
+                    src="../assets/avatar-black.jpg"
+                    alt="Michel Maia"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src="../assets/avatar-purple.jpg"
+                    alt="Michel Maia"
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
               <span className="font-bold text-xl tracking-tight">
                 Michel<span className="text-primary-500">Maia</span>
@@ -59,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <div className="pl-6 border-l border-slate-200 dark:border-slate-700">
                 <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="p-2 cursor-pointer rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
                   aria-label="Toggle theme"
                 >
                   {theme === "dark" ? (

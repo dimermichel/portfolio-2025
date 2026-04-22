@@ -69,7 +69,36 @@ export const SKILLS: SkillCategory[] = [
 export const PROJECTS: Project[] = [
   {
     id: "1",
-    title: "Quickbite Restaurant API",
+    title: "Course Feedback System",
+    description:
+      "Enterprise-grade serverless feedback management system for online courses.",
+    tags: [
+      "Java",
+      "Quarkus",
+      "Terraform",
+      "SNS/SQS",
+      "AWS Lambda",
+      "EventBridge",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1629836472253-577cb69025bf?w=800&h=600&fit=crop",
+    repoUrl: "https://github.com/dimermichel/course-feedback-system",
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "Time Care",
+    description:
+      "A microservices-based healthcare scheduling platform designed to streamline the connection between patients and medical professionals.",
+    tags: ["Java", "GraphQL", "Docker", "PostgreSQL", "MongoDB", "RabbitMQ"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1633526543814-9718c8922b7a?w=800&h=600&fit=crop",
+    repoUrl: "https://github.com/dimermichel/timecare",
+    featured: true,
+  },
+  {
+    id: "3",
+    title: "Quickbite Restaurant",
     description:
       "A modern Spring Boot application for food service management following Clean Architecture principles.",
     tags: ["Java", "Spring Framework", "Docker", "PostgreSQL"],
@@ -78,18 +107,29 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "2",
+    id: "4",
     title: "Video Prompter App",
     description:
       "Create scripts and record yourself with confidence. A teleprompter app that helps you deliver your message smoothly.",
     tags: ["React Native", "Expo", "Typescript", "Styled Components"],
     imageUrl:
-      "https://images.unsplash.com/photo-1600195558301-9197701f6758?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1765285262680-1175453963d5?w=800&h=600&fit=crop",
     repoUrl: "https://github.com/dimermichel/promakerapp",
     featured: true,
   },
   {
-    id: "3",
+    id: "5",
+    title: "Personal Portfolio Website",
+    description:
+      "Personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase projects and professional experience, featuring a modern design and responsive layout.",
+    tags: ["React", "Vite", "Typescript", "Tailwind CSS", "Lucide Icons"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
+    repoUrl: "https://github.com/dimermichel/portfolio-2025",
+    featured: true,
+  },
+  {
+    id: "6",
     title: "Travel App",
     description:
       "Travel planning app that helps users discover new destinations and create itineraries.",

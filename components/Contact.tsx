@@ -3,19 +3,40 @@ import { Mail, MapPin, Send, CheckCircle, XCircle } from "lucide-react";
 import Section from "./ui/Section";
 import emailjs from "@emailjs/browser";
 
+const isEmail = (email: string) =>
+  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
+
+  const isFormValid =
+    userName.trim() !== "" && isEmailValid && message.trim() !== "";
 
   const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
+  const checkEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserEmail(e.target.value);
+    setIsEmailValid(isEmail(e.target.value));
+  };
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isEmailValid) {
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
@@ -26,8 +47,11 @@ const Contact: React.FC = () => {
       .then(
         () => {
           setSubmitStatus("success");
-          setIsSubmitting(false);
           formRef.current?.reset();
+          setUserName("");
+          setUserEmail("");
+          setMessage("");
+          setIsEmailValid(false);
 
           // Clear success message after 5 seconds
           setTimeout(() => {
@@ -37,14 +61,16 @@ const Contact: React.FC = () => {
         (error) => {
           console.error("FAILED...", error.text);
           setSubmitStatus("error");
-          setIsSubmitting(false);
 
           // Clear error message after 5 seconds
           setTimeout(() => {
             setSubmitStatus("idle");
           }, 5000);
-        }
-      );
+        },
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -132,7 +158,8 @@ const Contact: React.FC = () => {
                     type="text"
                     id="name"
                     name="user_name"
-                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                    onChange={(e) => setUserName(e.target.value)}
+                    className="w-full placeholder:text-gray-400 px-4 py-3 rounded-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -147,7 +174,9 @@ const Contact: React.FC = () => {
                     type="email"
                     id="email"
                     name="user_email"
-                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                    onChange={(e) => checkEmail(e)}
+                    onBlur={() => setEmailTouched(true)}
+                    className={`w-full placeholder:text-gray-400 px-4 py-3 rounded-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all ${emailTouched && !isEmailValid ? "border-red-500 focus:border-red-500 focus:ring-red-500/20 text-red-400" : ""}`}
                     placeholder="john@example.com"
                   />
                 </div>
@@ -164,7 +193,8 @@ const Contact: React.FC = () => {
                   id="message"
                   name="message"
                   rows={8}
-                  className="w-full px-4 py-6 rounded-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full placeholder:text-gray-400 px-4 py-6 rounded-lg bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
@@ -190,8 +220,8 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 bg-gradient-to-r from-primary-700 to-primary-900 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 border border-primary-700/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                disabled={isSubmitting || !isFormValid}
+                className="w-full cursor-pointer py-4 bg-gradient-to-r from-primary-700 to-primary-900 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 border border-primary-700/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? (
                   <>
