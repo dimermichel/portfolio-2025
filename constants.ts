@@ -69,6 +69,25 @@ export const SKILLS: SkillCategory[] = [
 export const PROJECTS: Project[] = [
   {
     id: "1",
+    title: "Booky - Speak with your AI Book",
+    description:
+      "Booky is an AI-powered book companion that allows users to interact with their favorite books in a conversational way.",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "MongoDB",
+      "Vercel Blobs",
+      "VAPI AI",
+      "Clerk Auth",
+    ],
+    demoUrl: "https://booky-weld.vercel.app/",
+    imageUrl:
+      "https://images.unsplash.com/photo-1720465593275-6d4c64d7da55?w=800&h=600&fit=crop",
+    repoUrl: "https://github.com/dimermichel/course-feedback-system",
+    featured: true,
+  },
+  {
+    id: "2",
     title: "Course Feedback System",
     description:
       "Enterprise-grade serverless feedback management system for online courses.",
@@ -86,7 +105,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "2",
+    id: "3",
     title: "Time Care",
     description:
       "A microservices-based healthcare scheduling platform designed to streamline the connection between patients and medical professionals.",
@@ -97,7 +116,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "3",
+    id: "4",
     title: "Quickbite Restaurant",
     description:
       "A modern Spring Boot application for food service management following Clean Architecture principles.",
@@ -107,7 +126,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "4",
+    id: "5",
     title: "Video Prompter App",
     description:
       "Create scripts and record yourself with confidence. A teleprompter app that helps you deliver your message smoothly.",
@@ -118,25 +137,15 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "5",
+    id: "6",
     title: "Personal Portfolio Website",
     description:
       "Personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase projects and professional experience, featuring a modern design and responsive layout.",
-    tags: ["React", "Vite", "Typescript", "Tailwind CSS", "Lucide Icons"],
+    tags: ["React", "Vite", "Typescript", "Tailwind CSS", "EmailJS"],
     imageUrl:
       "https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&h=600&fit=crop",
     repoUrl: "https://github.com/dimermichel/portfolio-2025",
     featured: true,
-  },
-  {
-    id: "6",
-    title: "Travel App",
-    description:
-      "Travel planning app that helps users discover new destinations and create itineraries.",
-    tags: ["React", "Node.js", "Google APIs", "MongoDB"],
-    imageUrl: "https://picsum.photos/seed/project3/800/600",
-    repoUrl: "https://github.com/dimermichel/Ironhack-Project-3-Frontend",
-    featured: false,
   },
 ];
 
