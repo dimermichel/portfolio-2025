@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     demoUrl: "https://booky-weld.vercel.app/",
     imageUrl:
       "https://images.unsplash.com/photo-1720465593275-6d4c64d7da55?w=800&h=600&fit=crop",
-    repoUrl: "https://github.com/dimermichel/course-feedback-system",
+    repoUrl: "https://github.com/dimermichel/booky",
     featured: true,
   },
   {
