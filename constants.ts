@@ -32,8 +32,10 @@ export const SKILLS: SkillCategory[] = [
     skills: [
       "Angular",
       "React",
+      "Next.js",
       "TypeScript",
       "Tailwind CSS",
+      "Shadcn UI",
       "Bootstrap 5",
       "HTML",
       "CSS",
@@ -47,7 +49,6 @@ export const SKILLS: SkillCategory[] = [
       "Node.js",
       "Spring Boot",
       "Express",
-      "NestJS",
       "REST APIs",
       "GraphQL",
       "Grpc",
@@ -58,11 +59,27 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     name: "Database & Cloud",
-    skills: ["AWS", "PostgreSQL", "MongoDB", "Redis", "Docker"],
+    skills: [
+      "AWS",
+      "Vercel",
+      "Oracle Cloud",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Docker",
+    ],
   },
   {
     name: "Tools & DevOps",
-    skills: ["Git", "CI/CD", "JUnit", "Prometheus", "Grafana", "Swagger"],
+    skills: [
+      "Git",
+      "CI/CD",
+      "Github Actions",
+      "JUnit",
+      "Prometheus",
+      "Grafana",
+      "Swagger",
+    ],
   },
 ];
 
