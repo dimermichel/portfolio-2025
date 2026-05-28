@@ -105,6 +105,27 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "2",
+    title: "Intelligent Triage and Reception System",
+    description:
+      "Fullstack enterprise-grade serverless hospital triage and reception system designed to optimize patient flow.",
+    tags: [
+      "Java",
+      "React",
+      "Quarkus",
+      "Terraform",
+      "AWS Lambda",
+      "SQS",
+      "CloudFront",
+      "S3",
+      "WebSockets",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1565307528294-f70f3c7094e0?w=800&h=600&fit=crop",
+    repoUrl: "https://github.com/dimermichel/triagem-hospitalar",
+    featured: true,
+  },
+  {
+    id: "3",
     title: "Course Feedback System",
     description:
       "Enterprise-grade serverless feedback management system for online courses.",
@@ -122,7 +143,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "3",
+    id: "4",
     title: "Time Care",
     description:
       "A microservices-based healthcare scheduling platform designed to streamline the connection between patients and medical professionals.",
@@ -133,7 +154,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "4",
+    id: "5",
     title: "Quickbite Restaurant",
     description:
       "A modern Spring Boot application for food service management following Clean Architecture principles.",
@@ -143,7 +164,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "5",
+    id: "6",
     title: "Video Prompter App",
     description:
       "Create scripts and record yourself with confidence. A teleprompter app that helps you deliver your message smoothly.",
@@ -154,7 +175,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "6",
+    id: "7",
     title: "Personal Portfolio Website",
     description:
       "Personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase projects and professional experience, featuring a modern design and responsive layout.",
