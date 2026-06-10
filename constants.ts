@@ -126,6 +126,17 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "3",
+    title: "NestJS Microservices - Auth & Profile",
+    description:
+      "A production-style monorepo demonstrating how to split a backend into independent NestJS microservices.",
+    tags: ["NestJS", "Node.js", "gRPC", "Redis", "PostgreSQL", "Docker"],
+    imageUrl:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+    repoUrl: "https://github.com/dimermichel/nestjs-auth-profile",
+    featured: true,
+  },
+  {
+    id: "4",
     title: "Course Feedback System",
     description:
       "Enterprise-grade serverless feedback management system for online courses.",
@@ -143,7 +154,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "4",
+    id: "5",
     title: "Time Care",
     description:
       "A microservices-based healthcare scheduling platform designed to streamline the connection between patients and medical professionals.",
@@ -154,7 +165,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "5",
+    id: "6",
     title: "Quickbite Restaurant",
     description:
       "A modern Spring Boot application for food service management following Clean Architecture principles.",
@@ -164,7 +175,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "6",
+    id: "7",
     title: "Video Prompter App",
     description:
       "Create scripts and record yourself with confidence. A teleprompter app that helps you deliver your message smoothly.",
@@ -175,7 +186,7 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    id: "7",
+    id: "8",
     title: "Personal Portfolio Website",
     description:
       "Personal portfolio website built with React, TypeScript, and Tailwind CSS to showcase projects and professional experience, featuring a modern design and responsive layout.",
