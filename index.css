@@ -145,3 +145,59 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* ---------- custom cursor ---------- */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #5b4dff;
+}
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #5b4dff99;
+  transition:
+    width 0.3s,
+    height 0.3s,
+    background 0.3s;
+}
+.cursor-ring.is-hovering {
+  width: 64px;
+  height: 64px;
+  background: #5b4dff1a;
+}
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ---------- experience timeline (GSAP scrub target) ---------- */
+.timeline-progress {
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

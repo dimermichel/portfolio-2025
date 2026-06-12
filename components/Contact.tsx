@@ -3,9 +3,6 @@ import { Mail, MapPin, Send, CheckCircle, XCircle } from "lucide-react";
 import Section from "./ui/Section";
 import emailjs from "@emailjs/browser";
 
-const isEmail = (email: string) =>
-  /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
-
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,7 +16,10 @@ const Contact: React.FC = () => {
   const [emailTouched, setEmailTouched] = useState(false);
 
   const isFormValid =
-    userName.trim() !== "" && isEmailValid && message.trim() !== "";
+    userName.trim() !== "" &&
+    userEmail.trim() !== "" &&
+    isEmailValid &&
+    message.trim() !== "";
 
   const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
@@ -27,13 +27,13 @@ const Contact: React.FC = () => {
 
   const checkEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserEmail(e.target.value);
-    setIsEmailValid(isEmail(e.target.value));
+    setIsEmailValid(e.target.validity.valid);
   };
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!isEmailValid) {
+    if (!userEmail.trim() || !isEmailValid) {
       return;
     }
 
@@ -52,6 +52,7 @@ const Contact: React.FC = () => {
           setUserEmail("");
           setMessage("");
           setIsEmailValid(false);
+          setEmailTouched(false);
 
           // Clear success message after 5 seconds
           setTimeout(() => {

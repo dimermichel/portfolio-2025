@@ -21,12 +21,13 @@ const Footer: React.FC = () => {
           <div className="flex gap-6">
             {SOCIAL_LINKS.map((link) => {
               const Icon = link.icon;
+              const isMailto = link.url.startsWith("mailto:");
               return (
                 <a
                   key={link.platform}
                   href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isMailto ? undefined : "_blank"}
+                  rel={isMailto ? undefined : "noopener noreferrer"}
                   className="text-slate-400 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                   aria-label={link.platform}
                 >

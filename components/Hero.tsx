@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { SOCIAL_LINKS, SKILLS } from "../constants";
+import Magnetic from "./ui/Magnetic";
 
 const Hero: React.FC = () => {
   const isAvailable = true;
@@ -74,19 +75,23 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <a
-                href="#projects"
-                className="px-8 py-4 bg-gradient-to-r from-primary-700 to-primary-900 text-white rounded-full font-medium hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-1 transition-all flex items-center gap-2 border border-primary-700/50"
-              >
-                View Work <ArrowRight size={18} />
-              </a>
-              <a
-                href="/resume.pdf"
-                download
-                className="px-8 py-4 glass-card rounded-full font-medium text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all flex items-center gap-2"
-              >
-                Resume <Download size={18} />
-              </a>
+              <Magnetic>
+                <a
+                  href="#projects"
+                  className="px-8 py-4 bg-gradient-to-r from-primary-700 to-primary-900 text-white rounded-full font-medium hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-1 transition-all flex items-center gap-2 border border-primary-700/50"
+                >
+                  View Work <ArrowRight size={18} />
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="px-8 py-4 glass-card rounded-full font-medium text-slate-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-800/50 transition-all flex items-center gap-2"
+                >
+                  Resume <Download size={18} />
+                </a>
+              </Magnetic>
             </div>
 
             <div className="pt-8 flex items-center gap-6 text-slate-400">
@@ -178,63 +183,67 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 p-4 glass-card rounded-xl shadow-xl animate-pulse-slow border border-white/10">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Performance
-                    </p>
-                    <p className="font-bold text-slate-900 dark:text-white">
-                      100%
-                    </p>
-                  </div>
-                </div>
-              </div>
 
+              <div className="absolute -top-4 -right-4 p-4 glass-card rounded-xl shadow-xl animate-pulse-slow border border-white/10">
+                <Magnetic>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        Performance
+                      </p>
+                      <p className="font-bold text-slate-900 dark:text-white">
+                        100%
+                      </p>
+                    </div>
+                  </div>
+                </Magnetic>
+              </div>
               <div
                 className="absolute -bottom-8 -left-4 p-4 glass-card rounded-xl shadow-xl animate-float border border-white/10"
                 style={{ animationDelay: "1s" }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-green-500/10 rounded-lg text-green-400">
-                    <svg
-                      className="w-6 h-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                <Magnetic>
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-green-500/10 rounded-lg text-green-400">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
+                        Projects
+                      </p>
+                      <p className="font-bold text-slate-900 dark:text-white">
+                        Completed
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Projects
-                    </p>
-                    <p className="font-bold text-slate-900 dark:text-white">
-                      Completed
-                    </p>
-                  </div>
-                </div>
+                </Magnetic>
               </div>
             </div>
           </div>

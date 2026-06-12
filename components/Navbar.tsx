@@ -7,6 +7,8 @@ interface NavbarProps {
   toggleTheme: () => void;
 }
 
+const assetBaseUrl = `${import.meta.env.BASE_URL}assets`;
+
 const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -32,13 +34,13 @@ const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
               <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary-500 shadow-lg shadow-primary-500/20 transform group-hover:rotate-12 transition-transform">
                 {theme === "dark" ? (
                   <img
-                    src="../assets/avatar-black.jpg"
+                    src={`${assetBaseUrl}/avatar-black.jpg`}
                     alt="Michel Maia"
                     className="w-full h-full object-cover"
                   />
                 ) : (
                   <img
-                    src="../assets/avatar-purple.jpg"
+                    src={`${assetBaseUrl}/avatar-purple.jpg`}
                     alt="Michel Maia"
                     className="w-full h-full object-cover"
                   />
